@@ -15,6 +15,7 @@ import styles from './app.style.js';
 import { GET_TEMPEPATURE } from './app.const.js';
 import BluetoothSerialModule from './bluetoothSerialModule.js';
 import type { getDevicesArg } from './bluetoothSerialModule.js';
+import Jostic from './jostick.js'
 
 type State = {
   isEnabled: boolean,
@@ -147,13 +148,14 @@ export default class App extends Component<{}, State> {
             </TouchableOpacity>
           )}
         />
-        <Button
-          onPress={this.toggleSwitch.bind(this)}
-          title="Switch(On/Off)"
-          color="#841584"
-        />
-        <Text style={styles.text}>{this.state.text}</Text>
-        <Text style={styles.text}>{JSON.stringify(this.state.device)}</Text>
+        {/* <Button */}
+        {/*   onPress={this.toggleSwitch.bind(this)} */}
+        {/*   title="Switch(On/Off)" */}
+        {/*   color="#841584" */}
+        {/* /> */}
+        {/* <Text style={styles.text}>{this.state.text}</Text> */}
+        {/* <Text style={styles.text}>{JSON.stringify(this.state.device)}</Text> */}
+        <Jostic setPosition={pos=>{console.log('pos', pos)}}/>
       </View>
     );
   }
