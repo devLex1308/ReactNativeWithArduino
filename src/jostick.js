@@ -23,7 +23,7 @@ export default class Jostick extends Component {
       });
       if (this.props.setPosition) {
         this.props.setPosition(
-          {x: dx / this.initX, y: dy / this.initY}
+          {x: dx / this.initX, y: -dy / this.initY}
         );
       }
       // console.log('evt', dx, dy);
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderWidth:1,
   },
   titleText: {
     fontSize: 14,
@@ -87,9 +88,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   box: {
-    height: 30,
-    width: 30,
+    height: 50,
+    width: 50,
     backgroundColor: "blue",
-    borderRadius: 15
+    borderRadius: 25
   }
 });

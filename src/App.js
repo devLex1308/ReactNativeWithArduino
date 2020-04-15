@@ -118,6 +118,17 @@ export default class App extends Component<{}, State> {
     });
   }
 
+  jostickListener = pos=>{
+    const {x, y} = pos;
+    const xr = Math.round(100*x);
+    const yr = Math.round(100*y);
+    console.log('pos', {xr, yr});
+     this.BS.sendData('$'+xr+' '+yr+';', () => {
+      this.setState({ connected: true })
+     });
+
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -155,7 +166,7 @@ export default class App extends Component<{}, State> {
         {/* /> */}
         {/* <Text style={styles.text}>{this.state.text}</Text> */}
         {/* <Text style={styles.text}>{JSON.stringify(this.state.device)}</Text> */}
-        <Jostic setPosition={pos=>{console.log('pos', pos)}}/>
+        <Jostic style={{borderWidth:1}} setPosition={this.jostickListener}/>
       </View>
     );
   }
